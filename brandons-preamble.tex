@@ -1,0 +1,157 @@
+\documentclass{article}
+
+% ======================================================
+% ====================== PACKAGES ======================
+% ======================================================
+
+\usepackage[utf8]{inputenc} % Encoding package
+\usepackage{mathtools, amsfonts, amssymb, amsthm} % Math stuff
+\usepackage{multicol} % Multiple column support
+\usepackage{titling} % To float edit title positioning
+\usepackage{mdframed} % Framed theorems environments
+\usepackage{geometry} % Change page geometry
+\usepackage{enumitem} % Better enumerate/itemize support
+
+% Graphics
+\usepackage{tikz}
+\usepackage{graphicx}
+
+\usepackage{hyperref} % Hyperlinks
+
+% To edit title/section type-settings
+\usepackage[]{titling}
+\usepackage{titlesec}
+
+\usepackage{setspace} % To change line spacing
+
+% Change font
+\usepackage[T1]{fontenc}
+\usepackage[]{lmodern}
+
+\usepackage{indentfirst} % Indent the first paragraph
+\usepackage{lipsum} % Dummy text
+\usepackage{newclude} % For includes
+
+% ======================================================
+% ====================== Theorems ======================
+% ======================================================
+
+% Create all theorem-like environments
+\newmdtheoremenv{theoin}{Theorem}
+\newmdtheoremenv{definin}{Definition}
+\newmdtheoremenv{lemmain}{Lemma}
+\newmdtheoremenv{propin}{Proposition}
+\newmdtheoremenv{coroin}{Corollary}
+
+\newenvironment{theo}[1]{%
+  \renewcommand\theoin{#1}%
+  \theoin
+}{\theoin}
+
+\newenvironment{defin}[1]{%
+  \renewcommand\definin{#1}%
+  \definin
+}{\endmanualtheoreminner}
+
+\newenvironment{theo}[1]{%
+  \renewcommand\theoin{#1}%
+  \theoin
+}{\endmanualtheoreminner}
+
+\newenvironment{theo}[1]{%
+  \renewcommand\theoin{#1}%
+  \theoin
+}{\endmanualtheoreminner}
+
+% Add blocks around theorem-environments
+\definecolor{theocolor}{gray}{0.97}
+\mdfsetup{
+  backgroundcolor=theocolor,
+  outerlinewidth=0,
+  innertopmargin=0em,
+  innerbottommargin=0.7em,
+  innerrightmargin=0.7em,
+  innerleftmargin=0.5em
+}
+
+% Set QED symbol
+\renewcommand\qedsymbol{$\blacksquare$}
+
+% Add proof-like environments
+\newenvironment{reasoning}{\renewcommand{\proofname}{Reasoning}\begin{proof}}{\end{proof}}
+
+\newenvironment{solution}{\renewcommand{\proofname}{Solution}\begin{proof}}{\end{proof}}
+
+% ======================================================
+% ====================== Geometry ======================
+% ======================================================
+
+% Set page geometry
+\geometry{
+    a4paper,
+    margin=10mm
+}
+
+% ======================================================
+% ====================== Graphics ======================
+% ======================================================
+
+% Graphics path
+\graphicspath{ {./images/} }
+
+% Extra tikz libraries
+\usetikzlibrary{positioning}
+
+% ======================================================
+% ===================== Typesetting ====================
+% ======================================================
+
+% Settings for title, author, and date
+\pretitle{\noindent \huge} \posttitle{\newline\newline}
+\preauthor{\large} \postauthor{\newline}
+\predate{\large} \postdate{}
+
+% Section settings
+\titleformat{\section}{\normalfont\LARGE}{\thesection. }{0em}{}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+% Subsection settings
+\titleformat{\subsection}{\normalfont\Large}{\thesubsection. }{0em}{}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+% Subsubsection Settings
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\itshape}{\thesubsubsection. }{0em}{}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+% Change font
+\renewcommand{\familydefault}{\sfdefault}
+
+% Set default line spacing
+\onehalfspacing
+
+% Set paragraph spacing
+\setlength{\parskip}{0em}
+
+% Spacing around display-math
+\AtBeginDocument{\setlength{\abovedisplayskip}{0pt}}
+\AtBeginDocument{\setlength{\belowdisplayskip}{0pt}}
+
+% Make sure there is no space between enumerate and itemize items
+\setlist[enumerate]{noitemsep}
+\setlist[itemize]{noitemsep}
+
+% Make `\textbf` bold text AND math
+\let\oldtextbf=\textbf
+\renewcommand\textbf[1]{{\boldmath\oldtextbf{#1}}}
+
+% ======================================================
+% ====================== Commands ======================
+% ======================================================
+
+\newcommand{\cmod}[1]{\ (\mathrm{mod}\ #1)} % mod symbol
+\newcommand{\st}{\ \text{s.t.}\ } % Writes s.t.
+\newcommand{\Z}{\mathbb{Z}} % Integer Z symbol
+\newcommand{\Q}{\mathbb{Q}} % Rational Q symbol
+\newcommand{\R}{\mathbb{R}} % Real R symbol
+\newcommand{\C}{\mathbb{C}} % Complex C symbol
