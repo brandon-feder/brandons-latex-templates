@@ -1,0 +1,10 @@
+\setbeamersize{sidebar width left=0pt}
+\defbeamertemplate*{frametitle}{poly}
+{
+    \begin{beamercolorbox}[wd=1.0\paperwidth, ht=1cm, left]{}
+        \begin{tikzpicture}
+            \node[inner sep=0, anchor=west] at (0, 0) {\includegraphics[width=\paperwidth, height=1cm, trim={0 0 0 400}]{bg-image}};
+            \node[anchor=west] at (0, 0) {\usebeamerfont{frametitle}\insertframetitle};
+        \end{tikzpicture}
+    \end{beamercolorbox}
+}

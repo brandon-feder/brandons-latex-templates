@@ -1,0 +1,24 @@
+\mode<presentation>
+
+% Title page
+\defbeamertemplate*{title page}{poly}
+{
+    % Set background image
+    \tikz[remember picture,overlay] 
+    \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{blue-red-low-var.png}};
+    
+    % The text on the title page
+    \begin{beamercolorbox}[wd=0.9\textwidth,sep=1em]{coloredbox}
+        \usebeamerfont{title}\inserttitle\\
+        \usebeamerfont{subtitle}\insertsubtitle
+
+        \vspace{10px}
+        
+        \usebeamerfont{author}By \insertauthor
+    \end{beamercolorbox}
+    
+}
+
+% Blocks
+\setbeamercolor{block title}{fg=black, bg=black!10} 
+\setbeamercolor{block body}{parent=normal text, use=block title,bg=black!5}
